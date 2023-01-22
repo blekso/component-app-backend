@@ -1,4 +1,4 @@
-import { IsNumber, IsString } from 'class-validator';
+import { IsNumber, IsString, Max, Min } from 'class-validator';
 
 export class UserReviewDto {
   /**
@@ -21,4 +21,13 @@ export class UserReviewDto {
    */
   @IsString()
   review: string;
+
+  /**
+   * User star of the component
+   * @example 1
+   */
+  @IsNumber()
+  @Min(1)
+  @Max(5)
+  star: number;
 }

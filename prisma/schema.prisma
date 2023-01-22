@@ -29,6 +29,7 @@ model UserReview {
   userId      Int
   componentId Int
   review      String
+  star        Int
 
   user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }

@@ -20,12 +20,16 @@ export class UserService {
         HttpStatus.FORBIDDEN,
       );
 
+    if (body.star < 1 || body.star > 5)
+      throw new HttpException('USER.BAD_STAR', HttpStatus.FORBIDDEN);
+
     try {
       return await this.prisma.userReview.create({
         data: {
           userId: body.userId,
           componentId: body.componentId,
           review: body.review,
+          star: body.star,
         },
       });
     } catch (error) {

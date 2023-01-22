@@ -18,6 +18,7 @@ export class ComponentService {
       select: {
         createdAt: true,
         review: true,
+        star: true,
         user: {
           select: {
             name: true,
