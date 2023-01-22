@@ -1,7 +1,6 @@
-import { Controller, Get, Param, Res, UseGuards } from '@nestjs/common';
+import { Controller, Get, Param, Res } from '@nestjs/common';
 import { Response } from 'express';
-import { JwtGuard } from '../auth/guard';
-import { ApiBearerAuth, ApiOperation, ApiResponse } from '@nestjs/swagger';
+import { ApiOperation, ApiResponse } from '@nestjs/swagger';
 import { ResponseError } from '../common/dto/response.dto';
 import { ComponentService } from './component.service';
 
@@ -10,8 +9,6 @@ export class ComponentController {
   constructor(private componentService: ComponentService) {}
 
   @Get(':id')
-  @ApiBearerAuth('JWT-auth')
-  @UseGuards(JwtGuard)
   @ApiOperation({
     tags: [`Component`],
     summary: 'Component reviews',
