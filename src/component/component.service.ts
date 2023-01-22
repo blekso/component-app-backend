@@ -5,7 +5,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class ComponentService {
   constructor(private prisma: PrismaService) {}
 
-  async getReviewsById(id: number) {
+  async getReviewsById(id: string) {
     return await this.prisma.userReview.findMany({
       orderBy: [
         {

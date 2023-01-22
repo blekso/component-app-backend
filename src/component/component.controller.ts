@@ -30,7 +30,7 @@ export class ComponentController {
     @Res({ passthrough: true }) response: Response,
   ) {
     try {
-      return await this.componentService.getReviewsById(parseInt(id));
+      return await this.componentService.getReviewsById(id);
     } catch (error) {
       if (error.status) response.status(error.status);
       else response.status(500);

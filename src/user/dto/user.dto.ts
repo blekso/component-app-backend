@@ -1,4 +1,4 @@
-import { IsNumber, IsString, Max, Min } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString, Max, Min } from 'class-validator';
 
 export class UserReviewDto {
   /**
@@ -10,10 +10,11 @@ export class UserReviewDto {
 
   /**
    * User follower id in database
-   * @example 1
+   * @example "1"
    */
-  @IsNumber()
-  componentId: number;
+  @IsString()
+  @IsNotEmpty()
+  componentId: string;
 
   /**
    * User review of the component

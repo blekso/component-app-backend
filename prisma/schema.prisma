@@ -27,7 +27,7 @@ model UserReview {
   updatedAt DateTime @updatedAt
 
   userId      Int
-  componentId Int
+  componentId String
   review      String
   star        Int
 
